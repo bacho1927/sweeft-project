@@ -2,7 +2,7 @@
 import { useAppContext } from './ContextProvider';
 import ImageModal from './ImageModal';
 import useSearchHistory from './useSearchHistory';
-import { useState } from 'react';
+
 
 
 
@@ -11,6 +11,8 @@ function Main() {
 
    
     const {data} = useSearchHistory(searchQuery)
+
+
 
     return (
         <>
@@ -31,7 +33,7 @@ function Main() {
         </div>
         {selectedImage && (
             <>
-        <ImageModal  imageUrl={selectedImage} altText="Selected Image"  onClose={closeModal}/>
+        <ImageModal  imageUrl={selectedImage} data={data}altText="Selected Image"  onClose={closeModal}/>
         
         <div  className="fixed inset-0 z-100 bg-black opacity-50 " onClick={closeModal}></div>
 </>

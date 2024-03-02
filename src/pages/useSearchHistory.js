@@ -10,7 +10,7 @@ function useSearchHistory(searchQuery) {
     `https://api.unsplash.com/search/photos?query=${searchQuery}&client_id=${KEY}&per_page=20`;
 
 
-    const {data, isLoading, isError} = useQuery({
+    const {data} = useQuery({
         queryKey: [searchQuery],
         queryFn: async() => {
             try {   

@@ -1,13 +1,45 @@
-function ImageModal({ imageUrl,  onClose }) {
+import { FaThumbsUp } from "react-icons/fa";
+import { FaCloudDownloadAlt } from "react-icons/fa";
+
+
+
+function ImageModal({ data, imageUrl,  onClose}) {
+  
+
+  const find = data?.find(item => item.urls.full === imageUrl)
+  
+  
+
+  // const downloadImage = () => {
+  //   const url = find.links.download_location;
+  //   const link = document.createElement('a');
+  //   link.href=url;
+  //   link.setAttribute('download', find.links.download_location)
+  //   link.click();
+  //   document.body.removeChild(link);
+  // }
+
+  
+
     return (   
               <div className="fixed inset-0 z-50 flex items-center justify-center  " onClick={onClose}>
               <div className="relative  max-w-[800px] mx-auto my-6">
                
                 <div className="bg-white w-[800px]  rounded-lg shadow-lg">
-                 
-                  <img src={imageUrl} alt="Modal" className=" w-full rounded-lg  object-contain" />
-        
                   
+                  <img   src={imageUrl} alt="Modal" className=" w-full rounded-lg  object-contain"    />
+                  <div className=" absolute left-2 top-1/2 flex flex-col gap-2">
+                    <div className="flex  items-center gap-2 text-white  hover:text-blue-300 hover:cursor-pointer">
+                      <FaThumbsUp className="text-2xl  "/>
+                      <p className=" text-2xl">{find.likes}  </p>
+                     </div>
+                     <button className="flex gap-2 text-white  hover:text-blue-300 hover:cursor-pointer " >
+
+                        <FaCloudDownloadAlt className=" text-2xl"/>
+                        <p >Download</p>
+                     </button>
+
+                  </div>
                   <button
                     className="absolute top-0 right-0 m-4 text-gray-500 hover:text-gray-700 focus:outline-none"
                     onClick={onClose}

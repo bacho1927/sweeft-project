@@ -20,7 +20,7 @@ export const ContextProvider = ({ children }) => {
             });
         }
     }, [searchQuery]);
-    
+   
     const openModal = (imageUrl) => {
         setSelectedImage(imageUrl);
         document.body.style.overflow = 'hidden';
