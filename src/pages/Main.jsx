@@ -2,7 +2,7 @@
 import { useAppContext } from './ContextProvider';
 import ImageModal from './ImageModal';
 import FetchData from './FetchData';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 
