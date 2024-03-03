@@ -1,3 +1,4 @@
+
 import { FaThumbsUp } from "react-icons/fa";
 import { FaCloudDownloadAlt } from "react-icons/fa";
 
@@ -8,18 +9,18 @@ function ImageModal({ data, imageUrl,  onClose}) {
 
   const find = data?.find(item => item.urls.full === imageUrl)
   
-  
 
-  // const downloadImage = () => {
-  //   const url = find.links.download_location;
-  //   const link = document.createElement('a');
-  //   link.href=url;
-  //   link.setAttribute('download', find.links.download_location)
-  //   link.click();
-  //   document.body.removeChild(link);
-  // }
 
-  
+  const downloadImage = () => {
+    const url = find.links.download_location;
+    const link = document.createElement('a');
+    link.href=url;
+    link.setAttribute('download', find.links.download_location)
+    link.click();
+    document.body.removeChild(link);
+  }
+
+
 
     return (   
               <div className="fixed inset-0 z-50 flex items-center justify-center  " onClick={onClose}>
@@ -36,7 +37,7 @@ function ImageModal({ data, imageUrl,  onClose}) {
                      <button className="flex gap-2 text-white  hover:text-blue-300 hover:cursor-pointer " >
 
                         <FaCloudDownloadAlt className=" text-2xl"/>
-                        <p >Download</p>
+                        <p onClick={downloadImage}>Download</p>
                      </button>
 
                   </div>
